@@ -5,6 +5,13 @@ This is used for automation and setup of development environment
 
 ## Commands
 
+### Install Ansible:
+
+Mac
+```bash
+brew install ansible
+```
+
 ### Buld docker images:
 
 Blank computer
