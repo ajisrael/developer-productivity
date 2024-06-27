@@ -51,8 +51,15 @@ When you run this command:
 
 ### Run Ansible Playbook
 
+This will run the playbook specified in the file `fem.yml`
+
 ```bash
 ansible-playbook fem.yml
 ```
 
-This will run the playbook specified in the file `fem.yml`
+This will run a playbook and only execute a group of tasks with the same tag (`node` in this example).
+
+```bash
+ansible-playbook -t node fem.yml
+```
+
