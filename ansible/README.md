@@ -70,3 +70,20 @@ This will run a playbook and only execute a group of tasks with the same tag (`n
 ansible-playbook -t node fem.yml
 ```
 
+### Use Ansible Vault
+
+Encrypt
+
+```bash
+ansible-vault encrypt testfile
+```
+
+Then enter the password twice
+
+Decrypt
+
+```bash
+ansible-vault decrypt testfile
+```
+
+Then enter the password use for encryption
