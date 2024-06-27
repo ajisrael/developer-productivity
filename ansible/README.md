@@ -23,6 +23,14 @@ docker build . -f nvim.Dockerfile -t nvim-computer
 When you run this command:
 - Docker builds an image based on the `nvim.Dockerfile` and tags it with the name `nvim-computer`.
 
+#### Note
+
+Both commands can be run at the same time by executing the `build-dockers` script in this directory.
+
+```bash
+./build-dockers
+```
+
 ### Start docker container for testing:
 
 ```bash
@@ -41,3 +49,10 @@ When you run this command:
 - The -it options provide an interactive terminal session, so you can interact with the container using Bash.
 - You will be dropped into a Bash shell inside the running container, where you can run commands as if you were on a normal Linux system.
 
+### Run Ansible Playbook
+
+```bash
+ansible-playbook fem.yml
+```
+
+This will run the playbook specified in the file `fem.yml`
