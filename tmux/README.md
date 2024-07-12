@@ -30,6 +30,8 @@ C-d
 
 `C-d` writes an EOF to stdin, which closes the shell
 
+Note: If you have multiple windows open in a session, you will be navigated back to your previous window instead of detaching from the session.
+
 ### List Sessions
 
 ```bash
@@ -72,21 +74,97 @@ Detatches from current session
 
 ### Create Session
 
+#### New Session
+
+```bash
+tmux new-session
+```
+
+This will error when executed inside an attached session
+
+#### New Detatched Session
+
 ```bash
 tmux new-session -d
 ```
 
 Creates a new detatched session
 
-You can also do:
+#### New Detached Session with Name
 
 ```bash
-tmux new-session
+tmux new-session -d -s "foo"
 ```
 
-But this will error when executed inside an attached session
+Creates a new detatched session with the name `foo`
+
+#### New Detatched Session with Name and Window Name
+
+```bash
+tmux new-session -d -s "foo" -n "bar"
+```
+
+Creates a new detatched session with the name `foo`, and with the first window named `bar`
+
+#### New Detatched Session with Name at Directory
+
+```bash
+tmux new-session -d -s "foo" -c "$HOME/personal/"
+```
+
+Creates a new detatched session with the name `foo`, with the current directory set to the path at `-c`
+
+### Create Window
+
+#### New Window
+
+```bash
+tmux new-window
+```
+
+```bash
+<prefix>-c
+```
+
+Creates a new window inside the current session
+
+#### New Window with Name
+
+```bash
+tmux new-window -n "bar"
+```
+
+Creates a new window inside the current session with the name `bar`
+
+#### New Window with Name at Directory
+
+```bash
+tmux new-window -n "foo" -c "$HOME/personal/"
+```
+
+Creates a new window with the name `foo`, with the current directory set to the path at `-c`
+
+#### New Window and Run Command
+
+You can also append a command like `python` to run an executable when creating a new window
+
+```bash
+tmux new-window -n "foobar" [some command goes here]
+```
+
+### Create Pane
+
+```bash
+<prefix>-%
+```
+
+Vertically splits the current pane into two panes.
+
+Note: You can exit the current pane with `C-d` and you will fall back to the previous pane.
 
 ### Navigation Tips
+
+#### Sessions
 
 Next and previous sessions:
 
@@ -101,6 +179,44 @@ View all sessions and their windows:
 <prefix>-w
 ```
 
+#### Windows
+
+Next and previous windows:
+
+```bash
+<prefix>-n # next window
+<prefix>-p # previous window
+```
+
+Specific window:
+
+```bash
+<prefix>-1 # switch to window number 1 in current session
+```
+
+#### Switch Client
+
+The switch client command allows you to switch to another `session:window:pane#` by name
+
+```bash
+tmux switch-client -t "foo"
+```
+
+Switches the session to the one named `foo`
+
+
+```bash
+tmux switch-client -t "foo:bar"
+```
+
+Switches the session to the one named `foo` and window named `bar`
+
+```bash
+tmux switch-client -t "foo:bar:1"
+```
+
+Switches the session to the one named `foo`, window named `bar`, and pane number 1
+
 ## Terminology
 
 ### Prefix Key
@@ -108,3 +224,13 @@ View all sessions and their windows:
 `C-b` by default.
 
 Put's the server into command mode and listens for the next command rather than propogating through the session, window, and pane.
+
+## Usage Tips
+
+### Sessions
+
+A session should contain like items. I.e, if you are doing something that requires more than one window but it is for the same project,
+they should be in the same session.
+
+Sessions cannot have the same name (functions like a map, must be unique).
+
