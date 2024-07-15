@@ -179,6 +179,12 @@ View all sessions and their windows:
 <prefix>-w
 ```
 
+Go back to previous session:
+
+```bash
+<prefix>-L
+```
+
 #### Windows
 
 Next and previous windows:
@@ -233,4 +239,24 @@ A session should contain like items. I.e, if you are doing something that requir
 they should be in the same session.
 
 Sessions cannot have the same name (functions like a map, must be unique).
+
+### Accessing scripts and functionality
+
+Save new keybinding for executing script easily
+
+```bash
+bindkey -s ^f "tmux-sessionizer\n"
+```
+
+Maps `C-f` to run the script
+
+# FZF
+
+## Install
+
+Mac
+
+```bash
+brew install fzf
+```
 
