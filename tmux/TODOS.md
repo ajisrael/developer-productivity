@@ -15,3 +15,4 @@
 - Create ansible scripts
 - Create executable keybind for vim
 - Add keymaps for tmux using vim keys
+- Update tmux rc to set starting index for windows to 1
