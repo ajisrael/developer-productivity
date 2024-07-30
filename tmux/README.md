@@ -223,6 +223,25 @@ tmux switch-client -t "foo:bar:1"
 
 Switches the session to the one named `foo`, window named `bar`, and pane number 1
 
+#### Copy mode
+
+From `cht.sh`:
+
+```bash
+#  copy mode (copymode)
+# ---
+#  [  go into copy mode
+#  ]  paste into the current window
+```
+
+So to enter copy mode:
+
+```bash
+<prefix>[
+```
+
+Note: See `.tmux.conf` file for configuration on how select and yank are mapped from vi mode to be used in copy mode.
+
 ## Terminology
 
 ### Prefix Key
