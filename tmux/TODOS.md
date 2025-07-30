@@ -3,11 +3,12 @@
 ## Done
 - Make sessionizer script accessable everywhere
 - Map sessionizer script to C-f in zsh
+- update sessionizer script to account for when tmux isn't running
+- Update tmux rc to set starting index for windows to 1
 
 ## Todo
 - Link up cht.sh script to keybind in zsh and vim
 - Make cht.sh script accessable everywhere
-- update sessionizer script to account for when tmux isn't running
 - Map sessionizer script to C-f in vim
 - Create copy and paste for tmuxrc
 - Organize dotfiles
@@ -15,4 +16,3 @@
 - Create ansible scripts
 - Create executable keybind for vim
 - Add keymaps for tmux using vim keys
-- Update tmux rc to set starting index for windows to 1
